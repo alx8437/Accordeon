@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordeon/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOf} from "./components/OnOf/OnOf";
+import UncontrollAccordeon from "./components/UncontrollAccordeon/UncontrollAccordeon";
 
 function App() {
     return (
@@ -10,8 +12,8 @@ function App() {
             <PageTitle title={"My friends"}/>
             Article1
             <Rating value={3}/>
-            <Accordion titleValue={"Menu"} collapsed={false}/>
-            <Accordion titleValue={"Users"} collapsed={true}/>
+            <UncontrollAccordeon titleValue={"Menu"}/>
+            <UncontrollAccordeon titleValue={"Users"}/>
             Article2
             <Rating value={0}/>
             <Rating value={1}/>
@@ -19,6 +21,7 @@ function App() {
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>
+            <OnOf />
         </div>
     );
 }
