@@ -1,27 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordeon/Accordion";
-import {Rating} from "./components/Rating/Rating";
-import {OnOf} from "./components/OnOf/OnOf";
-import UncontrollAccordeon from "./components/UncontrollAccordeon/UncontrollAccordeon";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
+import {ControlledOnOf} from "./components/ControlledOnOf/ControlledOnOf";
+import ControlledAccordion from "./components/Accordeon/ControlledAccordion";
+import {UncontrolledOnOf} from "./components/UncontrolledOnOf/UncontrolledOnOf";
 
 function App() {
+
+    const [ratingValue, setRatingValue] = useState<RatingValueType>(1)
+    const [toggle, setOnToggle] = useState<boolean>(false)
+    const [collapsedAccordion, setCollapsedAccordion] = useState<boolean>(false)
+
+
     return (
-        <div>
-            <PageTitle title={"This is App component"}/>
-            <PageTitle title={"My friends"}/>
-            Article1
-            <Rating value={3}/>
-            <UncontrollAccordeon titleValue={"Menu"}/>
-            <UncontrollAccordeon titleValue={"Users"}/>
-            Article2
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
-            <OnOf />
+        <div className={"App"}>
+            <ControlledOnOf
+                setOnToggle={setOnToggle}
+                on={toggle}
+            />
+            <ControlledAccordion
+                setCollapsedAccordion={() => setCollapsedAccordion(!collapsedAccordion)}
+                titleValue={"--Menu--"}
+                collapsed={collapsedAccordion}
+            />
+            <Rating
+                value={ratingValue}
+                setRatingValue={setRatingValue}
+            />
+            <UncontrolledOnOf setToggle={setOnToggle}/> {toggle.toString()}
         </div>
     );
 }

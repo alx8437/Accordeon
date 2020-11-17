@@ -1,0 +1,47 @@
+.toggle {
+    width: 80px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.indicator {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.indicator_of {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    border-radius: 50%;
+    border: 1px solid;
+    background-color: red;
+}
+
+.indicator_on {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    border-radius: 50%;
+    border: 1px solid;
+    background-color: green;
+}
+
+
+.button {
+    border-radius: 3px;
+}
+
+.button_on {
+    border-radius: 3px;
+    background-color: green;
+}
+
+.button_of {
+    border-radius: 3px;
+    background-color: red;
+}
