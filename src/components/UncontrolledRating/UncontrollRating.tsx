@@ -2,17 +2,24 @@ import React, {useState} from "react";
 import styles from "./UncontrollRating.module.css"
 import {RatingValueType} from "../Rating/Rating";
 
-export function UncontrollRating() {
+export type DefaultRatingType = {
+    defaultValue?: RatingValueType
+    onChange: (value: RatingValueType) => void
+}
 
-    const [value, setValue] = useState(0)
+
+
+export function UncontrollRating(props: DefaultRatingType) {
+
+    const [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
         return (
             <div>
-                <Star setValue={setValue} selected={value > 0} value={1}/>
-                <Star setValue={setValue} selected={value > 1} value={2}/>
-                <Star setValue={setValue} selected={value > 2} value={3}/>
-                <Star setValue={setValue} selected={value > 3} value={4}/>
-                <Star setValue={setValue} selected={value > 4} value={5}/>
+                <Star setValue={() => { setValue(value); props.onChange(value); }} selected={value > 0} value={1}/>
+                <Star setValue={() => { setValue(value); props.onChange(value); }} selected={value > 1} value={2} />
+                <Star setValue={() => { setValue(value); props.onChange(value); }} selected={value > 2} value={3} />
+                <Star setValue={() => { setValue(value); props.onChange(value); }} selected={value > 3} value={4} />
+                <Star setValue={() => { setValue(value); props.onChange(value); }} selected={value > 4} value={5} />
             </div>
         )
 }

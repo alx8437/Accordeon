@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Rating, RatingValueType} from "./components/Rating/Rating";
-import {ControlledOnOf} from "./components/ControlledOnOf/ControlledOnOf";
-import ControlledAccordion from "./components/Accordeon/ControlledAccordion";
+import {OnOf} from "./components/ControlledOnOf/OnOf";
+import {Accordion} from "./components/Accordeon/Accordion";
 import {UncontrolledOnOf} from "./components/UncontrolledOnOf/UncontrolledOnOf";
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
 
     return (
         <div className={"App"}>
-            <ControlledOnOf
+            <OnOf
                 setOnToggle={setOnToggle}
                 on={toggle}
             />
-            <ControlledAccordion
+            <Accordion
                 setCollapsedAccordion={() => setCollapsedAccordion(!collapsedAccordion)}
                 titleValue={"--Menu--"}
                 collapsed={collapsedAccordion}

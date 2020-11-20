@@ -4,14 +4,11 @@ type AccordionPropsType = {
     titleValue: string;
 }
 
-function UncontrollAccordeon(props: AccordionPropsType) {
-
-    const [collapsed, setCollapsed] = useState(false);
-
+export function UncontrolledAccordeon(props: AccordionPropsType) {
+    const [collapsed, setCollapsed] = useState<boolean>(false);
     const toggleCollapsed = () => {
         setCollapsed(!collapsed)
     }
-
     return (
         <div>
             <AccordionTitle toggleCollapsed={toggleCollapsed} title={props.titleValue}/>
@@ -41,7 +38,5 @@ function AccordionBody() {
             <li>3</li>
         </ul>
     )
-}
+};
 
-
-export default UncontrollAccordeon;

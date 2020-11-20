@@ -3,12 +3,13 @@ import styles from "./UncontrolledOnOf.module.css"
 
 type PropsType = {
     setToggle: (toggle: boolean) => void
+    defaultValue?: boolean
 }
 
 
 export function UncontrolledOnOf(props: PropsType) {
 
-    const [onOf, setOnOff] = useState(false);
+    const [onOf, setOnOff] = useState<boolean>(props.defaultValue ? props.defaultValue : false);
 
 
     let classIndicator = (onOf) ? `${styles.indicator_on}` : `${styles.indicator_of}`;

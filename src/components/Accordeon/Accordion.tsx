@@ -6,7 +6,7 @@ type AccordionPropsType = {
     setCollapsedAccordion: () => void
 }
 
-function ControlledAccordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle
@@ -28,18 +28,16 @@ type AccordionTitlePropsType = {
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    return <h3 onClick={props.setCollapsedAccordion}>{props.title}</h3>
+    return <h3 onClick={(e) => props.setCollapsedAccordion()}>{props.title}</h3>
 }
 
 function AccordionBody() {
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li>1 item</li>
+            <li>2 item</li>
+            <li>3 item</li>
         </ul>
     )
 }
 
-
-export default ControlledAccordion;
