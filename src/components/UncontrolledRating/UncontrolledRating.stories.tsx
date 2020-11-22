@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import {action} from "@storybook/addon-actions";
 import {UncontrollRating} from "./UncontrollRating";
-import {Rating, RatingValueType} from "../Rating/Rating";
 
 export default {
     title: "UncontrolledRating",
