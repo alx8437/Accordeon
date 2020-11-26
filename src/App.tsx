@@ -11,7 +11,6 @@ function App() {
     const [toggle, setOnToggle] = useState<boolean>(false)
     const [collapsedAccordion, setCollapsedAccordion] = useState<boolean>(false)
 
-
     return (
         <div className={"App"}>
             <OnOf
