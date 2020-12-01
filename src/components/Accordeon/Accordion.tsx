@@ -45,7 +45,6 @@ type AccordionBodyPropsType = {
 
 function AccordionBody(props: AccordionBodyPropsType) {
 
-    debugger
     return (
         <ul>
             {props.items.map(item => <li key={item.value} onClick={() => props.onClickItem(item.value)}>{item.title}</li>)}

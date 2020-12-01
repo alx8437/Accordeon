@@ -14,9 +14,9 @@ export const DefaultAccordion = () =>
     <Accordion
         items={[
             {title: "Alex", value: 1},
-            {title: "Vlad", value: 1},
-            {title: "Rita", value: 1},
-            {title: "Natasha", value: 1}
+            {title: "Vlad", value: 2},
+            {title: "Rita", value: 3},
+            {title: "Natasha", value: 4}
         ]}
         onClickItem={onClickcallback}
         titleValue={"Menu"}
