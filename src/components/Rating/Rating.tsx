@@ -9,7 +9,8 @@ type RatingPropsType = {
     setRatingValue: (value: RatingValueType) => void
 }
 
-export function Rating(props: RatingPropsType) {
+export const Rating = React.memo(RatingNotMemo)
+function RatingNotMemo(props: RatingPropsType) {
         return (
             <div>
                 <Star value={1} setRatingValue={props.setRatingValue} selected={props.value > 0}/>
@@ -28,7 +29,8 @@ type StarPropsType = {
     value: RatingValueType
 }
 
-function Star(props: StarPropsType) {
+const Star = React.memo(StarNotMemo)
+function StarNotMemo(props: StarPropsType) {
 
     const setRatingValue = () => {
         props.setRatingValue(props.value)

@@ -7,7 +7,7 @@ export default {
     component: OnOf
 }
 
-const callback = action("on or off be clicked")
+const callback = action("on off be clicked")
 
 export const DefaultToggle = () => <OnOf on={false} setOnToggle={callback} />
 export const OnToggle = () => <OnOf on={true} setOnToggle={callback} />

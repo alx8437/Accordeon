@@ -13,7 +13,8 @@ type AccordionPropsType = {
     onClickItem: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+export const Accordion = React.memo(AccordionNotMemo)
+function AccordionNotMemo(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle
@@ -34,7 +35,8 @@ type AccordionTitlePropsType = {
     setCollapsedAccordion: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+const AccordionTitle = React.memo(AccordionTitleNotMemo)
+function AccordionTitleNotMemo(props: AccordionTitlePropsType) {
     return <h3 onClick={(e) => props.setCollapsedAccordion()}>{props.title}</h3>
 }
 
@@ -43,7 +45,8 @@ type AccordionBodyPropsType = {
     onClickItem: (value: any) => void
 }
 
-function AccordionBody(props: AccordionBodyPropsType) {
+const AccordionBody = React.memo(AccordionBodyNotMemo)
+function AccordionBodyNotMemo(props: AccordionBodyPropsType) {
 
     return (
         <ul>

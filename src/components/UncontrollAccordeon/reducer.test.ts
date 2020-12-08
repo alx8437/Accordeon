@@ -19,12 +19,12 @@ test("reducer should change toggle accordeon", () => {
     expect(newState.collapsed).toBe(false)
 })
 
-test("received error because incorrect type", () => {
-    const startState: StateType = {
-        collapsed: true
-    }
-
-    expect(() => {
-        reducer(startState, {type: "FAKE-TYPE"})
-    }).toThrowError
-})
+// test("received error because incorrect type", () => {
+//     const startState: StateType = {
+//         collapsed: true
+//     }
+//
+//     expect(() => {
+//         reducer(startState, {type: "FAKE-TYPE"})
+//     }).toThrowError
+// })

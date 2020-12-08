@@ -1,8 +1,6 @@
 import React, {useState, KeyboardEvent, useEffect} from "react";
 import styles from "./SelectUpd.module.css"
 
-
-
 export type ItemType = {
     title: string
     value: any
@@ -14,7 +12,8 @@ type SelectPropsType = {
     onChange: (value: any) => void
 }
 
-export function SelectUpd(props: SelectPropsType) {
+export const SelectUpd = React.memo(SelectUpdNotMemo)
+function SelectUpdNotMemo(props: SelectPropsType) {
     const [active, setActive] = useState<boolean>(false)
     const [hoveredElementValue, setHoveredElementValue] = useState(props.value)
 
@@ -23,7 +22,7 @@ export function SelectUpd(props: SelectPropsType) {
 
     useEffect(() => {
         setHoveredElementValue(props.value);
-    }, [ props.value ])
+    }, [props.value])
 
     const toggleItems = () => {
         setActive(!active)
@@ -34,12 +33,12 @@ export function SelectUpd(props: SelectPropsType) {
     };
 
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
-        if(e.key === "ArrowDown" || e.key ===  "ArrowUp") {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
             for (let i = 0; i < props.items.length; i++) {
                 if (props.items[i].value === hoveredElementValue) {
                     const pretendedElement = e.key === "ArrowDown"
-                        ? props.items[i+1]
-                        : props.items[i-1]
+                        ? props.items[i + 1]
+                        : props.items[i - 1]
 
                     if (pretendedElement) {
                         props.onChange(pretendedElement.value)

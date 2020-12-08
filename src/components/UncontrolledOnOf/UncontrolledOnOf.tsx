@@ -6,11 +6,11 @@ type PropsType = {
     defaultValue?: boolean
 }
 
+export const UncontrolledOnOf = React.memo(UncontrolledOnOfNotMemo)
 
-export function UncontrolledOnOf(props: PropsType) {
+function UncontrolledOnOfNotMemo(props: PropsType) {
 
     const [onOf, setOnOff] = useState<boolean>(props.defaultValue ? props.defaultValue : false);
-
 
     let classIndicator = (onOf) ? `${styles.indicator_on}` : `${styles.indicator_of}`;
     let classButtonOn = (onOf) ? `${styles.button_on}` : `${styles.button}`;
@@ -20,6 +20,7 @@ export function UncontrolledOnOf(props: PropsType) {
         props.setToggle(true)
         setOnOff(true)
     }
+
     const toggleOf = () => {
         props.setToggle(false)
         setOnOff(false)

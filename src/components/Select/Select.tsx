@@ -15,8 +15,8 @@ type SelectPropsType = {
     collapsed: boolean
 }
 
-export function Select(props: SelectPropsType) {
-
+export const Select = React.memo(SelectNotMemo)
+function SelectNotMemo(props: SelectPropsType) {
     return (
         <div>
             <SelectTitle
@@ -36,8 +36,8 @@ type SelectTitlePropsType = {
     setCollapsed: () => void
 }
 
-function SelectTitle(props: SelectTitlePropsType) {
-
+const SelectTitle = React.memo(SelectTitleNotMemo)
+function SelectTitleNotMemo(props: SelectTitlePropsType) {
     const setCollapsed = () => {
         props.setCollapsed()
     }
@@ -57,7 +57,8 @@ type SelectBodyPropsType = {
     selectItems: (value: number) => void
 }
 
-function SelectBody(props: SelectBodyPropsType) {
+const SelectBody = React.memo(SelectBodyNotMemo)
+function SelectBodyNotMemo(props: SelectBodyPropsType) {
     return (
         <div className={s.body}>
             {props.items.map(i => <div
