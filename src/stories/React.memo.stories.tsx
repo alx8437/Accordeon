@@ -22,10 +22,16 @@ export const Example1 = () => {
     const [counter, setCounter] = useState(0)
     const [users, setUsers] = useState(["Vanya", "Pete", "Olga", "Igor"])
 
-    return <>
+    const addUser = () => {
+        const newUsers = [...users, "John"]
+        setUsers(newUsers)
+    }
+
+    return <React.Fragment>
         <button onClick={() => setCounter(counter + 1)}>+</button>
+        <button onClick={addUser}>add user</button>
         <NewMessagesCounter count={counter}/>
         <Users users={users}/>
-    </>
+    </React.Fragment>
 }
 
