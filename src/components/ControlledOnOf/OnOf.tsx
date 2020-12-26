@@ -6,8 +6,7 @@ type PropsType = {
     setOnToggle: (toggle: boolean) => void
 }
 
-export  const OnOf = React.memo(OnOfNotMemo)
-function OnOfNotMemo(props: PropsType) {
+export  const OnOf = React.memo((props: PropsType) => {
 
     let classIndicator = (props.on) ? `${styles.indicator_on}` : `${styles.indicator_of}`;
     let classButtonOn = (props.on) ? `${styles.button_on}` : `${styles.button}`;
@@ -20,4 +19,4 @@ function OnOfNotMemo(props: PropsType) {
             <div className={classIndicator}/>
         </div>
     )
-}
+});

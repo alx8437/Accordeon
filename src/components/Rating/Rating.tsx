@@ -9,8 +9,8 @@ type RatingPropsType = {
     setRatingValue: (value: RatingValueType) => void
 }
 
-export const Rating = React.memo(RatingNotMemo)
-function RatingNotMemo(props: RatingPropsType) {
+
+export const Rating = React.memo((props: RatingPropsType) => {
         return (
             <div>
                 <Star value={1} setRatingValue={props.setRatingValue} selected={props.value > 0}/>
@@ -21,7 +21,7 @@ function RatingNotMemo(props: RatingPropsType) {
             </div>
         )
 
-}
+});
 
 type StarPropsType = {
     selected: boolean;
@@ -29,14 +29,11 @@ type StarPropsType = {
     value: RatingValueType
 }
 
-const Star = React.memo(StarNotMemo)
-function StarNotMemo(props: StarPropsType) {
-
+const Star = React.memo((props: StarPropsType) => {
     const setRatingValue = () => {
         props.setRatingValue(props.value)
     }
-
     return <span className={styles.stars } onClick={setRatingValue}>
         {props.selected ? <b> star</b> : " star"}
     </span>
-}
+});

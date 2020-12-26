@@ -13,8 +13,7 @@ type AccordionPropsType = {
     onClickItem: (value: any) => void
 }
 
-export const Accordion = React.memo(AccordionNotMemo)
-function AccordionNotMemo(props: AccordionPropsType) {
+export const Accordion = React.memo((props: AccordionPropsType) => {
     return (
         <div>
             <AccordionTitle
@@ -25,9 +24,7 @@ function AccordionNotMemo(props: AccordionPropsType) {
             { !props.collapsed && <AccordionBody onClickItem={props.onClickItem} items={props.items}/> }
         </div>
     )
-
-
-}
+})
 
 type AccordionTitlePropsType = {
     title: string
@@ -35,23 +32,20 @@ type AccordionTitlePropsType = {
     setCollapsedAccordion: () => void
 }
 
-const AccordionTitle = React.memo(AccordionTitleNotMemo)
-function AccordionTitleNotMemo(props: AccordionTitlePropsType) {
+const  AccordionTitle = React.memo((props: AccordionTitlePropsType) => {
     return <h3 onClick={(e) => props.setCollapsedAccordion()}>{props.title}</h3>
-}
+})
 
 type AccordionBodyPropsType = {
     items: ItemsType[]
     onClickItem: (value: any) => void
 }
 
-const AccordionBody = React.memo(AccordionBodyNotMemo)
-function AccordionBodyNotMemo(props: AccordionBodyPropsType) {
-
+const AccordionBody = React.memo((props: AccordionBodyPropsType) => {
     return (
         <ul>
             {props.items.map(item => <li key={item.value} onClick={() => props.onClickItem(item.value)}>{item.title}</li>)}
         </ul>
     )
-}
+})
 

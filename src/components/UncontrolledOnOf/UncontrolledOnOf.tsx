@@ -6,9 +6,7 @@ type PropsType = {
     defaultValue?: boolean
 }
 
-export const UncontrolledOnOf = React.memo(UncontrolledOnOfNotMemo)
-
-function UncontrolledOnOfNotMemo(props: PropsType) {
+export const UncontrolledOnOf = React.memo((props: PropsType) => {
 
     const [onOf, setOnOff] = useState<boolean>(props.defaultValue ? props.defaultValue : false);
 
@@ -34,4 +32,4 @@ function UncontrolledOnOfNotMemo(props: PropsType) {
             <div className={classIndicator}/>
         </div>
     )
-}
+});

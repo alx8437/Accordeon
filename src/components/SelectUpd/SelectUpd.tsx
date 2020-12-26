@@ -12,8 +12,7 @@ type SelectPropsType = {
     onChange: (value: any) => void
 }
 
-export const SelectUpd = React.memo(SelectUpdNotMemo)
-function SelectUpdNotMemo(props: SelectPropsType) {
+export const SelectUpd = React.memo((props: SelectPropsType) => {
     const [active, setActive] = useState<boolean>(false)
     const [hoveredElementValue, setHoveredElementValue] = useState(props.value)
 
@@ -50,11 +49,9 @@ function SelectUpdNotMemo(props: SelectPropsType) {
                 props.onChange(props.items[0].value)
             }
         }
-
         if (e.key === "Enter" || e.key === "Escape") {
             setActive(false)
         }
-
     }
 
     return (
@@ -77,7 +74,5 @@ function SelectUpdNotMemo(props: SelectPropsType) {
             }
         </div>
     )
-
-
-}
+});
 
