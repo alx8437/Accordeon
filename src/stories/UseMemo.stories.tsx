@@ -52,12 +52,13 @@ const Users = React.memo((props: { users: Array<string> }) => {
     </div>
 })
 
-//Here show how use UseSelect => have two entity: counter and array Users. Users array is not render, when use counter.
+//Here show how use UseMemo => have two entity: counter and array Users. Users array is not render, when use counter.
 export const HelpsToReactMemo = () => {
     console.log("HelpToReactMemo is render")
 
     const [counter, setCounter] = useState(0)
-    const [users, setUsers] = useState<Array<string>>(["Vanya", "Pete", "Olga", "Igor"])
+    const [users, setUsers] = useState<Array<string>>(
+        ["Vanya", "Pete", "Olga", "Igor"])
 
     //т.к filter дает новый объект, компонента перерисовывается
     //Чтобы этого не было - проделываем useMemo.
